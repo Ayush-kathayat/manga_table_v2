@@ -9,18 +9,17 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import DATA from "../data";
-import EditableCell from "./EditableCell";
 import StatusCell from "./StatusCell";
 import DateCell from "./DateCell";
 import Filters from "./Filters";
 import SortIcon from "./icons/SortIcon";
+import "./tasktable.css";
 
 const columns = [
   {
     accessorKey: "task",
     header: "Task",
     size: 225,
-    cell: EditableCell,
     enableColumnFilter: true,
     filterFn: "includesString",
   },
@@ -40,12 +39,6 @@ const columns = [
     accessorKey: "due",
     header: "Due",
     cell: DateCell,
-  },
-  {
-    accessorKey: "notes",
-    header: "Notes",
-    size: 225,
-    cell: EditableCell,
   },
 ];
 
