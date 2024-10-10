@@ -18,7 +18,7 @@ import "./tasktable.css";
 const columns = [
   {
     accessorKey: "task",
-    header: "Task",
+    header: "Manga",
     size: 225,
     enableColumnFilter: true,
     filterFn: "includesString",
@@ -36,8 +36,14 @@ const columns = [
     },
   },
   {
+    accessorKey: "chapters",
+    header: "Chapter read",
+    size: 180,
+    
+  },
+  {
     accessorKey: "due",
-    header: "Due",
+    header: "Last Read",
     cell: DateCell,
   },
 ];
