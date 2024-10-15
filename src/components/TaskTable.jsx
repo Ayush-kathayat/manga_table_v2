@@ -1,5 +1,14 @@
 import { useState } from "react";
-import { Box, Button, ButtonGroup, Icon, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Button,
+  ButtonGroup,
+  Icon,
+  Text,
+  Link,
+  LinkOverlay,
+  LinkBox,
+} from "@chakra-ui/react";
 import {
   flexRender,
   getCoreRowModel,
@@ -15,13 +24,45 @@ import Filters from "./Filters";
 import SortIcon from "./icons/SortIcon";
 import "./tasktable.css";
 
+const extractMangaName = (url) => {
+  if (!url) return "Unknown Manga"; // Return a default value if URL is undefined or null
+  const parts = url.split("/");
+  const lastPart = parts[parts.length - 1];
+  return lastPart
+    .split("-")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ")
+    .replace(/\d+$/, "") // Remove numbers at the end
+    .trim(); // Remove whitespace
+};
+
+const MangaLinkCell = ({ getValue, row: { original } }) => {
+  const mangaName = extractMangaName(original.link).toUpperCase(); // Convert to uppercase
+
+  return (
+    <Link
+      href={original.link || "#"} // Fallback if the link is undefined
+      target="_blank"
+      rel="noopener noreferrer"
+      color="white" // Set text color to white
+      textDecoration="none" // Remove underline
+      fontWeight="bold" // Make text bold
+      letterSpacing="3px" // Add letter spacing of 3px
+      _hover={{ textDecoration: "none", color: "gray.300" }} // Optional: color change on hover
+    >
+      {mangaName}
+    </Link>
+  );
+};
+
 const columns = [
   {
-    accessorKey: "task",
+    accessorKey: "link",
     header: "Manga",
     size: 225,
     enableColumnFilter: true,
     filterFn: "includesString",
+    cell: MangaLinkCell,
   },
   {
     accessorKey: "status",
@@ -39,7 +80,6 @@ const columns = [
     accessorKey: "chapters",
     header: "Chapter read",
     size: 180,
-    
   },
   {
     accessorKey: "due",
