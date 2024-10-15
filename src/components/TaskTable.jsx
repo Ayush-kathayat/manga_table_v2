@@ -59,7 +59,7 @@ const columns = [
   {
     accessorKey: "link",
     header: "Manga",
-    size: 225,
+    size: 425,
     enableColumnFilter: true,
     filterFn: "includesString",
     cell: MangaLinkCell,
