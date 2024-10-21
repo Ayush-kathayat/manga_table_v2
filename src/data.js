@@ -1,22 +1,22 @@
-const STATUS_ON_DECK = { id: 1, name: "On Deck", color: "blue.300" };
+const STATUS_ON_DROPPED = { id: 1, name: "Dropped", color: "red.300" };
 const STATUS_IN_PROGRESS = {
   id: 2,
   name: "In Progress",
   color: "yellow.400",
 };
-const STATUS_TESTING = { id: 3, name: "Testing", color: "pink.300" };
-const STATUS_DEPLOYED = { id: 4, name: "Deployed", color: "green.300" };
+const STATUS_NOT_STARTED = { id: 3, name: "Not Started", color: "pink.300" };
+const STATUS_FINISHED_READING = { id: 4, name: "Finished", color: "green.300" };
 export const STATUSES = [
-  STATUS_ON_DECK,
+  STATUS_ON_DROPPED,
   STATUS_IN_PROGRESS,
-  STATUS_TESTING,
-  STATUS_DEPLOYED,
+  STATUS_NOT_STARTED,
+  STATUS_FINISHED_READING,
 ];
 
 const DATA = [
   {
     link: "https://mangareader.to/chainsaw-man-96",
-    status: STATUS_ON_DECK,
+    status: STATUS_IN_PROGRESS,
     due: new Date("2023/10/15"),
     chapters: 1,
   },
@@ -28,7 +28,7 @@ const DATA = [
   },
   {
     link: "https://mangareader.to/jujutsu-kaisen-168",
-    status: STATUS_DEPLOYED,
+    status: STATUS_FINISHED_READING,
     due: null,
     chapters: 1,
   },
@@ -40,7 +40,7 @@ const DATA = [
   },
   {
     link: "https://mangareader.to/blue-lock-225",
-    status: STATUS_TESTING,
+    status: STATUS_NOT_STARTED,
     due: null,
     chapters: 1,
   },
@@ -64,7 +64,7 @@ const DATA = [
   },
   {
     link: "https://mangareader.to/undead-unluck-7025",
-    status: STATUS_ON_DECK,
+    status: STATUS_ON_DROPPED,
     due: new Date("2023/11/08"),
     chapters: 1,
   },
@@ -88,7 +88,7 @@ const DATA = [
   },
   {
     link: "https://mangareader.to/my-dressup-darling-1185",
-    status: STATUS_ON_DECK,
+    status: STATUS_ON_DROPPED,
     due: new Date("2023/11/15"),
     chapters: 1,
   },
@@ -106,13 +106,13 @@ const DATA = [
   },
   {
     link: "https://mangareader.to/bungo-stray-dogs-156",
-    status: STATUS_ON_DECK,
+    status: STATUS_ON_DROPPED,
     due: new Date("2023/11/01"),
     chapters: 1,
   },
   {
     link: "https://mangareader.to/dr-stone-388",
-    status: STATUS_DEPLOYED,
+    status: STATUS_FINISHED_READING,
     due: null,
     chapters: 1,
   },
@@ -124,7 +124,7 @@ const DATA = [
   },
   {
     link: "https://mangareader.to/solo-leveling-21",
-    status: STATUS_TESTING,
+    status: STATUS_NOT_STARTED,
     due: null,
     chapters: 1,
   },
