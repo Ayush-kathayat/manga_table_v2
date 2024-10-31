@@ -5,8 +5,9 @@ const STATUS_IN_PROGRESS = {
   color: "yellow.400",
 };
 const STATUS_ON_HOLD = { id: 3, name: "On Hold", color: "gray.300" };
-// const STATUS_NOT_STARTED = { id: 3, name: "Not Started", color: "pink.300" };
 const STATUS_FINISHED_READING = { id: 4, name: "Finished", color: "green.300" };
+const STATUS_NOT_STARTED = { id: 5, name: "Not Started", color: "pink.300" };
+
 export const STATUSES = [
   STATUS_ON_DROPPED,
   STATUS_IN_PROGRESS,
