@@ -1,14 +1,5 @@
 import { useState } from "react";
-import {
-  Box,
-  Button,
-  ButtonGroup,
-  Icon,
-  Text,
-  Link,
-  LinkOverlay,
-  LinkBox,
-} from "@chakra-ui/react";
+import { Box, Button, ButtonGroup, Icon, Text, Link } from "@chakra-ui/react";
 import {
   flexRender,
   getCoreRowModel,
@@ -25,30 +16,29 @@ import SortIcon from "./icons/SortIcon";
 import "./tasktable.css";
 
 const extractMangaName = (url) => {
-  if (!url) return "Unknown Manga"; // Return a default value if URL is undefined or null
+  if (!url) return "Unknown Manga";
   const parts = url.split("/");
   const lastPart = parts[parts.length - 1];
   return lastPart
     .split("-")
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(" ")
-    .replace(/\d+$/, "") // Remove numbers at the end
-    .trim(); // Remove whitespace
+    .replace(/\d+$/, "")
+    .trim();
 };
 
-const MangaLinkCell = ({ getValue, row: { original } }) => {
+const MangaLinkCell = ({ row: { original } }) => {
   const mangaName = extractMangaName(original.link).toUpperCase(); // Convert to uppercase
 
   return (
     <Link
-      href={original.link || "#"} // Fallback if the link is undefined
-      target="_blank"
+      href={original.link || "#"}
       rel="noopener noreferrer"
-      color="white" // Set text color to white
-      textDecoration="none" // Remove underline
-      fontWeight="bold" // Make text bold
-      letterSpacing="3px" // Add letter spacing of 3px
-      _hover={{ textDecoration: "none", color: "gray.300" }} // Optional: color change on hover
+      color="white"
+      textDecoration="none"
+      fontWeight="bold"
+      letterSpacing="3px"
+      _hover={{ textDecoration: "none", color: "gray.300" }}
     >
       {mangaName}
     </Link>
